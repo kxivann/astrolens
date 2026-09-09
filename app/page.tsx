@@ -4,6 +4,7 @@ import PhotoGallery from "@/components/PhotoGallery";
 import { projects } from "@/data/projects";
 import { reels } from "@/data/reels";
 import ContactModal from "@/components/ContactModal";
+import ReelCard from "@/components/ReelCard";
 
 
 const films = [
@@ -385,87 +386,6 @@ export default function Home() {
     </main>
   );
 }
-
-function ReelCard({
-  reel,
-  landscape = false,
-  className = "",
-}: {
-  reel: {
-    src: string;
-    title: string;
-    category: string;
-  };
-  landscape?: boolean;
-  className?: string;
-}) {
-  return (
-    <article className={`group ${className}`}>
-      <div
-        className={`
-          relative
-          overflow-hidden
-          rounded-2xl
-          border
-          border-white/5
-          bg-black
-          ${landscape ? "aspect-video" : "aspect-[9/16]"}
-        `}
-      >
-        <video
-          src={reel.src}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="
-            h-full
-            w-full
-            object-cover
-            transition
-            duration-700
-            ease-out
-            group-hover:scale-[1.015]
-          "
-        />
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/55
-            via-transparent
-            to-transparent
-          "
-        />
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            bottom-0
-            left-0
-            right-0
-            p-4
-            md:p-5
-          "
-        >
-          <h3 className="text-sm font-medium text-white md:text-base">
-            {reel.title}
-          </h3>
-
-          <p className="mt-1 text-[8px] uppercase tracking-[0.18em] text-zinc-400">
-            {reel.category}
-          </p>
-        </div>
-      </div>
-    </article>
-  );
-}
-
 function SectionHeader({
   index,
   title,
