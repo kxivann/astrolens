@@ -38,12 +38,12 @@ export default function Home() {
         </a>
 
         <div className="flex items-center gap-7 text-[11px] uppercase tracking-[0.15em] text-white">
-          <a className="hidden md:block hover:opacity-60" href="#work">
-            Work
-          </a>
-
           <a className="hidden md:block hover:opacity-60" href="#film">
             Film
+          </a>
+
+          <a className="hidden md:block hover:opacity-60" href="#work">
+            Work
           </a>
 
           <ContactModal />
