@@ -2,11 +2,13 @@ import Image from "next/image";
 import { photos } from "@/data/photos";
 import PhotoGallery from "@/components/PhotoGallery";
 import { projects } from "@/data/projects";
+import { reels } from "@/data/reels";
+import ContactModal from "@/components/ContactModal";
 
 
 const films = [
   {
-    title: "Brand Film",
+    title: "",
     type: "Commercial / 2026",
     background: "from-[#07161b] to-[#355769]",
   },
@@ -44,9 +46,7 @@ export default function Home() {
             Film
           </a>
 
-          <a className="hover:opacity-60" href="#contact">
-            Start a Project
-          </a>
+          <ContactModal />
         </div>
       </nav>
 
@@ -74,8 +74,7 @@ export default function Home() {
           <div className="mt-10 flex items-end justify-between">
 
             <p className="max-w-md text-sm leading-7 text-zinc-400 md:text-base">
-              Astrolens is the visual work of Keivan — cinematic photography
-              and film for people, brands and stories worth remembering.
+            I like Films. I like Photography. I Coded this website. 
             </p>
 
             <p className="hidden text-[10px] uppercase tracking-[0.2em] text-zinc-500 md:block">
@@ -86,171 +85,192 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SHOWREEL */}
-      <section className="bg-[#0b0b0b] px-5 py-24 md:px-12 lg:px-16">
-
-        <SectionHeader
-          index="01 / SHOWREEL"
-          title="Motion before explanation."
-        />
-
-        <div
-  className="
-    group
-    relative
-    mx-auto
-    max-w-[1280px]
-    overflow-hidden
-    rounded-2xl
-    border
-    border-white/5
-    bg-black
-  "
+      {/* MOTION */}
+<section
+  id="film"
+  className="bg-[#0b0b0b] px-5 py-24 md:px-12 lg:px-16"
 >
-  <video
-    src="/media/films/showreel.mp4"
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="metadata"
-    className="
-      aspect-video
-      w-full
-      object-cover
-    "
+  <SectionHeader
+    index="01 / MOTION"
+    title="Things that move."
   />
 
-  <div
-    className="
-      pointer-events-none
-      absolute
-      inset-0
-      bg-gradient-to-t
-      from-black/35
-      via-transparent
-      to-transparent
-    "
-  />
+  <div className="mx-auto max-w-[1250px] space-y-4">
 
-  <div
-    className="
-      pointer-events-none
-      absolute
-      bottom-0
-      left-0
-      right-0
-      flex
-      items-end
-      justify-between
-      p-5
-      md:p-6
-    "
-  >
-    <div>
-      <p className="text-sm font-medium tracking-[-0.02em] text-white">
-        Astrolens Showreel
-      </p>
+  {/* TOP ROW */}
+  <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:items-center">
 
-      <p className="mt-1 text-[9px] uppercase tracking-[0.18em] text-zinc-400">
-        Film / Photography / Direction
-      </p>
+    {/* LEFT PORTRAIT */}
+    <ReelCard
+      reel={reels[0]}
+      className="lg:col-span-3"
+    />
+
+    {/* TWO MIDDLE PORTRAITS */}
+    <div className="grid grid-cols-2 gap-4 lg:col-span-6">
+      <ReelCard reel={reels[3]} />
+      <ReelCard reel={reels[4]} />
     </div>
+
+    {/* RIGHT PORTRAIT */}
+    <ReelCard
+      reel={reels[2]}
+      className="lg:col-span-3"
+    />
+
   </div>
+
+
+  {/* LANDSCAPE UNDERNEATH */}
+  <div className="grid grid-cols-1 lg:grid-cols-12">
+
+    <ReelCard
+      reel={reels[1]}
+      landscape
+      className="lg:col-span-6 lg:col-start-4"
+    />
+
+  </div>
+
 </div>
 
-      </section>
+</section>
 
-      {/* SELECTED WORK */}
+     {/* SELECTED WORK */}
+<section
+  id="work"
+  className="px-5 py-24 md:px-12 lg:px-16"
+>
+  <SectionHeader
+    index="02 / SELECTED WORK"
+    title="What I specialise in."
+    description="Commercial campaigns, artist visuals, branded content and projects created to help people and businesses stand out."
+  />
 
-      <div className="mx-auto max-w-[1200px]">
-  <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-    {projects.map((project) => (
-      <article
-        key={project.title}
-        className="
-          group
-          relative
-          aspect-[4/3]
-          overflow-hidden
-          rounded-2xl
-          border
-          border-white/5
-          bg-[#111]
-        "
-      >
-        <Image
-          src={project.cover}
-          alt={project.title}
-          fill
-          quality={95}
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+  <div className="mx-auto max-w-[1200px]">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+
+      {projects.map((project) => (
+        <article
+          key={project.title}
           className="
-            object-cover
-            transition
-            duration-700
-            ease-out
-            group-hover:scale-[1.015]
+            group
+            relative
+            aspect-[4/3]
+            overflow-hidden
+            rounded-2xl
+            border
+            border-white/5
+            bg-[#111]
           "
-        />
+        >
+          <Image
+            src={project.cover}
+            alt={project.title}
+            fill
+            quality={95}
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            className="
+              object-cover
+              transition
+              duration-700
+              ease-out
+              group-hover:scale-[1.035]
+            "
+          />
 
-        <div className="
-          absolute
-          inset-0
-          bg-gradient-to-t
-          from-black/65
-          via-black/5
-          to-transparent
-        " />
+          {/* IMAGE OVERLAY */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-black/80
+              via-black/10
+              to-transparent
+              transition
+              duration-500
+              group-hover:from-black/65
+            "
+          />
 
-        <div className="
-          absolute
-          bottom-0
-          left-0
-          right-0
-          flex
-          items-end
-          justify-between
-          p-5
-          md:p-6
-        ">
-          <div>
-            <h3 className="
-              text-xl
-              font-medium
-              tracking-[-0.04em]
-              md:text-2xl
-            ">
+          {/* PROJECT INFO */}
+          <div
+            className="
+              absolute
+              bottom-0
+              left-0
+              right-0
+              p-5
+              transition
+              duration-500
+              group-hover:-translate-y-1
+              md:p-6
+            "
+          >
+            <h3
+              className="
+                text-xl
+                font-medium
+                tracking-[-0.04em]
+                md:text-2xl
+              "
+            >
               {project.title}
             </h3>
 
-            <p className="
-              mt-2
-              text-[9px]
-              uppercase
-              tracking-[0.17em]
-              text-zinc-400
-            ">
+            <p
+              className="
+                mt-2
+                text-[9px]
+                uppercase
+                tracking-[0.17em]
+                text-zinc-400
+              "
+            >
               {project.type}
             </p>
           </div>
+        </article>
+      ))}
 
-          <span className="
-            text-xl
-            text-zinc-300
-            transition
-            duration-300
-            group-hover:-translate-y-1
-            group-hover:translate-x-1
-          ">
-            ↗
-          </span>
-        </div>
-      </article>
-    ))}
+    </div>
+
+    {/* CTA */}
+    <div
+      className="
+        mt-10
+        flex
+        flex-col
+        gap-5
+        border-t
+        border-white/10
+        pt-8
+        sm:flex-row
+        sm:items-center
+        sm:justify-between
+      "
+    >
+      <p className="text-sm text-zinc-500">
+        Have something in mind?
+      </p>
+
+      <ContactModal
+        buttonText="Start a project ↗"
+        className="
+          w-fit
+          border-b
+          border-zinc-600
+          pb-1
+          text-sm
+          normal-case
+          tracking-normal
+          hover:border-white
+        "
+      />
+    </div>
   </div>
-</div>
-
+</section>
 
       {/* PHOTOGRAPHY */}
 <section className="px-5 py-24 md:px-12 lg:px-16">
@@ -265,46 +285,12 @@ export default function Home() {
 
 </section>
 
-      {/* FILM */}
-      <section id="film" className="px-5 py-24 md:px-12 lg:px-16">
-
-        <SectionHeader
-          index="04 / FILM"
-          title="Things that move."
-          description="Commercial films, artist visuals, short-form stories and experiments."
-        />
-
-        <div className="grid gap-8 md:grid-cols-3">
-
-          {films.map((film) => (
-            <article key={film.title} className="group cursor-pointer">
-
-              <div
-                className={`relative aspect-[16/10] overflow-hidden rounded-2xl bg-gradient-to-br ${film.background}`}
-              >
-                <div className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/20 backdrop-blur-sm transition duration-300 group-hover:scale-110">
-                  ▶
-                </div>
-              </div>
-
-              <h3 className="mt-4 text-base font-medium">{film.title}</h3>
-
-              <p className="mt-2 text-[10px] uppercase tracking-[0.16em] text-zinc-500">
-                {film.type}
-              </p>
-
-            </article>
-          ))}
-
-        </div>
-      </section>
-
       {/* ABOUT */}
       <section className="px-5 py-24 md:px-12 lg:px-16">
 
         <SectionHeader
-          index="05 / ASTROLENS"
-          title="Cinematic without pretending."
+          index="05 / BEHIND THE LENS"
+          title="From idea to final frame."
         />
 
         <div className="grid gap-10 md:grid-cols-[1fr_1.5fr]">
@@ -315,16 +301,15 @@ export default function Home() {
 
           <div>
             <p className="max-w-3xl text-3xl leading-[1.1] tracking-[-0.045em] md:text-5xl">
-              I make visual work that sits somewhere between documentary,
-              commercial imagery and cinema.
+              I’m a London based photographer and filmmaker creating commercial campaigns, artist visuals, sports content, portraits and branded media.
+
             </p>
 
             <p className="mt-8 max-w-md text-sm leading-7 text-zinc-500">
-              Astrolens works across photography, short-form film, branded
-              content, artist visuals and personal projects. The aim is simple:
-              make work people remember after they&apos;ve stopped looking at
-              it.
+                I help businesses and brands turn ideas into content that gets attention. From concept and planning through to shooting, editing and final delivery, I create visuals designed to make your business look credible, memorable and easier to market helping you attract new customers and stand out online.
+        
             </p>
+            
           </div>
 
         </div>
@@ -379,12 +364,7 @@ export default function Home() {
             London, United Kingdom
           </p>
 
-          <a
-            href="mailto:your@email.com"
-            className="w-fit border-b border-zinc-600 pb-1 transition hover:border-white"
-          >
-            Start a project ↗
-          </a>
+          <ContactModal buttonText="Start a project ↗" />
 
         </div>
 
@@ -403,6 +383,86 @@ export default function Home() {
       </footer>
 
     </main>
+  );
+}
+
+function ReelCard({
+  reel,
+  landscape = false,
+  className = "",
+}: {
+  reel: {
+    src: string;
+    title: string;
+    category: string;
+  };
+  landscape?: boolean;
+  className?: string;
+}) {
+  return (
+    <article className={`group ${className}`}>
+      <div
+        className={`
+          relative
+          overflow-hidden
+          rounded-2xl
+          border
+          border-white/5
+          bg-black
+          ${landscape ? "aspect-video" : "aspect-[9/16]"}
+        `}
+      >
+        <video
+          src={reel.src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="
+            h-full
+            w-full
+            object-cover
+            transition
+            duration-700
+            ease-out
+            group-hover:scale-[1.015]
+          "
+        />
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-black/55
+            via-transparent
+            to-transparent
+          "
+        />
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            bottom-0
+            left-0
+            right-0
+            p-4
+            md:p-5
+          "
+        >
+          <h3 className="text-sm font-medium text-white md:text-base">
+            {reel.title}
+          </h3>
+
+          <p className="mt-1 text-[8px] uppercase tracking-[0.18em] text-zinc-400">
+            {reel.category}
+          </p>
+        </div>
+      </div>
+    </article>
   );
 }
 

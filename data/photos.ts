@@ -9,6 +9,12 @@ export const photos = [
     title: "Clothing Brand Campaign",
     category: "Portrait",
   },
+
+    {
+    src: "/media/photos/PHNTMStill_1.1.1.png",
+    title: "PHNTM",
+    category: "Creative",
+  },
   /*{
     src: "/media/photos/BedSheetCompanyStills_1.26.1.png",
     title: "Bedsheet Campaign",
@@ -19,11 +25,11 @@ export const photos = [
     title: "Artist Collaborations",
     category: "Commercial",
   },*/
-  {
+ /* {
     src: "/media/photos/BRGstill1_3.1.1.png",
     title: "Artist Collaborations",
     category: "Commercial",
-  },
+  },*/
   /*{
     src: "/media/photos/ConstructionStill_1.17.1.png",
     title: "Construction",
@@ -40,11 +46,11 @@ export const photos = [
     title: "Fitness Campaigns",
     category: "Creative",
   },
-  {
+  /*{
     src: "/media/photos/FinalStills_1.14.1.png",
     title: "Product Marketing",
     category: "Film",
-  },
+  },*/
   {
     src: "/media/photos/FinalStills_1.16.1.png",
     title: "Film Still",
@@ -64,11 +70,6 @@ export const photos = [
     src: "/media/photos/MusicVidStill_1.4.1.png",
     title: "Music Video",
     category: "Music",
-  },
-  {
-    src: "/media/photos/PHNTMStill_1.1.1.png",
-    title: "PHNTM",
-    category: "Creative",
   },
   {
     src: "/media/photos/PosterArts_3.2.2.png",
@@ -96,11 +97,11 @@ export const photos = [
     category: "Music",
   },
 
-  {
+  /*{
     src: "/media/photos/TruevieStills_1.1.1.png",
     title: "Truevie",
     category: "Commercial",
-  },
+  },*/
   {
     src: "/media/photos/TruevieStills_1.4.1.png",
     title: "Truevie",
